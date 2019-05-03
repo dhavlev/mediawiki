@@ -1,0 +1,19 @@
+---
+
+server_type: web
+
+apt_packages:
+  - apache2
+  - mysql-server
+  - php
+  - php-mysql
+  - libapache2-mod-php
+  - php-xml
+  - php-mbstring
+  - php-apcu
+  - php-intl
+  - imagemagick
+  - inkscape
+  - php-gd
+  - php-cli
+  - php-curl

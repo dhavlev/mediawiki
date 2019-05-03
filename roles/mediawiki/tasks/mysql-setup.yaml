@@ -1,0 +1,13 @@
+---
+
+- name: tranform sql setup template
+  template:
+    dest: /tmp/sql.sh
+    src: sql.sh.j2
+
+- name: execute sql setup
+  shell: sql.sh
+  args:
+    chdir: tmp
+  notify: 
+    - clean up

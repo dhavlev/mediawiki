@@ -1,0 +1,6 @@
+---
+
+server_type: database
+
+apt_packages:
+  - mysql-server

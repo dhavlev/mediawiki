@@ -1,0 +1,9 @@
+---
+
+- name: restart apache
+  service:
+    name: apache2
+    state: restarted
+
+- name: clean up
+  shell: rm -rf /tmp/mediawiki-1.32.1.tar.gz /tmp/sql.sh

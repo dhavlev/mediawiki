@@ -1,0 +1,29 @@
+---
+
+- name: create directory for mediawiki
+  file:
+    path: /var/lib/mediawiki
+    state: directory
+
+- name: download mediawiki
+  get_url:
+    url: https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.1.tar.gz
+    dest: /tmp/mediawiki-1.32.1.tar.gz
+
+- name: unzip mediawiki
+  unarchive:
+    src: /tmp/mediawiki-1.32.1.tar.gz
+    dest: /var/lib/mediawiki
+
+- name: Create symbolic link 
+  file:
+   src: "/var/www/html/mediawiki"
+   dest: "/var/lib/mediawiki"
+   state: link
+
+- name: enable php mods
+  shell: phpenmod mbstring && sudo phpenmod xml
+  notify: 
+    - clean up
+    - restart apache
+
