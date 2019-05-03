@@ -2,3 +2,4 @@
 
 dependencies:
   - role: apt-upgrade
+  - role: misc

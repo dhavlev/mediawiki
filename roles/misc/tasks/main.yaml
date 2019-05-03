@@ -1,0 +1,7 @@
+---
+
+- name: set mysql root password
+  shell: >-
+    echo "mysql-server mysql-server/root_password password {{ mysql_root_password }}" | sudo debconf-set-selections &&
+    echo "mysql-server mysql-server/root_password_again password {{ mysql_root_password }}" | sudo debconf-set-selections
+  when: server_type == "db"
