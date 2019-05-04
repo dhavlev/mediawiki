@@ -4,7 +4,6 @@ server_type: web
 
 apt_packages:
   - apache2
-  - mysql-server
   - php
   - php-mysql
   - libapache2-mod-php

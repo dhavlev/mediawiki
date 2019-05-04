@@ -1,11 +1,19 @@
 ---
-# this is main file for role
+
+- name: apt update and upgrade
+  shell: apt-get -y update && apt-get -y upgrade
+
+- name: set mysql root password when server type is db
+  shell: >-
+    echo "mysql-server mysql-server/root_password password {{ mysql_root_password }}" | sudo debconf-set-selections &&
+    echo "mysql-server mysql-server/root_password_again password {{ mysql_root_password }}" | sudo debconf-set-selections
+  when: server_type == "db"
 
 - name: install apt package - {{ item }}
   apt:
     name: "{{ item }}"
     state: present
-  with_items: "{{ apt-packages }}"
+  with_items: "{{ apt_packages }}"
 
 
   
