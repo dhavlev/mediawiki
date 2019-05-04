@@ -9,7 +9,7 @@ module "network" {
 
 module "compute" {
   source = "./compute"
-  ami = "ami-036ede09922dadc9b"
+  ami = "ami-0565af6e282977273"
   key_name = "media_wiki"
   public_key_path = "/home/cloud_user/.ssh/media_wiki.pub"
 

@@ -11,7 +11,7 @@ output "db_security_group" {
 }
 
 output "web_subnet_a" {
-  value = "${aws_security_group.mw_sg_private.id}"
+  value = "${aws_subnet.mw_sub_public_a.id}"
 }
 
 output "web_subnet_b" {
