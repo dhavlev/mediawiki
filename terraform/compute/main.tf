@@ -9,8 +9,8 @@ data "aws_availability_zones" "data_az" {
 
 #-------------- Key-Pair --------------#
 resource "aws_key_pair" "mw_key_pair" {
-  key_name = "media_wiki"
-  public_key = "${file("/home/user/.ssh/media_wiki.pub")}"
+  key_name = "${var.key_name}"
+  public_key = "${file(var.public_key_path)}"
 }
 
 resource "aws_instance" "mw_instance_web_a" {
