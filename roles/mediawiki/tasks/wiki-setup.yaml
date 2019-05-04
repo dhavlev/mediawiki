@@ -14,6 +14,7 @@
   unarchive:
     src: /tmp/mediawiki-1.32.1.tar.gz
     dest: /var/lib/mediawiki
+    remote_src: yes
 
 - name: Create symbolic link 
   file:
