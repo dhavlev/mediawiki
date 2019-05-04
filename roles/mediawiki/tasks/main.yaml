@@ -6,4 +6,4 @@
 
 - name: execute mysql setup
   include: mysql-setup.yaml
-  when: server_type == "db"
+  when: server_type == "database"

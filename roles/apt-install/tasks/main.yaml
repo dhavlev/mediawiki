@@ -1,13 +1,13 @@
 ---
 
 - name: apt update and upgrade
-  shell: apt-get -y update && apt-get -y upgrade
+  shell: apt-get -y update && apt-get -y upgrade && apt-get -f install
 
-- name: set mysql root password when server type is db
+- name: set mysql root password when server type is database
   shell: >-
     echo "mysql-server mysql-server/root_password password {{ mysql_root_password }}" | sudo debconf-set-selections &&
     echo "mysql-server mysql-server/root_password_again password {{ mysql_root_password }}" | sudo debconf-set-selections
-  when: server_type == "db"
+  when: server_type == "database"
 
 - name: install apt packages
   apt:
