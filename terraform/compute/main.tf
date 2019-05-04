@@ -56,7 +56,7 @@ resource "aws_instance" "mw_instance_db" {
 
 #-------------- ELB --------------#
 resource "aws_elb" "mw_elb" {
-  name = "media_wiki_elb"
+  name = "media-wiki-elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]
   instances = ["${aws_instance.mw_instance_web_a.id}", "${aws_instance.mw_instance_web_b.id}"]
   security_groups = ["${var.web_security_group}"]
