@@ -1,4 +1,9 @@
 
+provider "aws" {
+  region = "us-east-1"
+  profile = "mediawiki"
+}
+
 data "aws_availability_zones" "data_az" {
   
 }
@@ -6,7 +11,7 @@ data "aws_availability_zones" "data_az" {
 #-------------- VPC --------------#
 resource "aws_vpc" "mw_vpc" {
   cidr_block = "192.168.0.0/16"
-  
+    
   tags{
       Name = "mediawiki"
   }
