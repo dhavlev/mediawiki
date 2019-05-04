@@ -1,7 +1,7 @@
 ---
 
 - name: execute wiki-web setup
-  include: wiki.setup.yaml
+  include: wiki-setup.yaml
   when: server_type == "web"
 
 - name: execute mysql setup

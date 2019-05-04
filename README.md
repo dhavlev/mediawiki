@@ -7,3 +7,6 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an
 * Add id_rsa.pub to authorized_keys on remote server
 * Link: https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 * Link: https://code-maven.com/enable-ansible-passwordless-sudo
+
+## How to execute playbook
+ansible-playbook -i non-production master-install-mediawiki.yaml -l dev-mediawiki-web --step
