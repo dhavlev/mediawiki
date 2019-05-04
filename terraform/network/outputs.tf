@@ -1,3 +1,7 @@
+output "mw_vpc" {
+  value = "${aws_vpc.mw_vpc.id}"
+}
+
 output "web_security_group" {
   value = "${aws_security_group.mw_sg_public.id}"
 }
