@@ -10,3 +10,6 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an
 
 ## How to execute playbook
 ansible-playbook -i non-production master-install-mediawiki.yaml -l dev-mediawiki-web --step
+
+## How to Secure Passwords
+https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
