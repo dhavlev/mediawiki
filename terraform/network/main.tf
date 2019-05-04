@@ -1,4 +1,3 @@
-
 provider "aws" {
   region = "us-east-1"
   profile = "mediawiki"
@@ -14,6 +13,7 @@ resource "aws_vpc" "mw_vpc" {
     
   tags{
       Name = "mediawiki"
+      Project = "mediawiki"
   }
 }
 
@@ -23,6 +23,7 @@ resource "aws_internet_gateway" "mw_igw" {
   
   tags{
       Name = "mediawiki"
+      Project = "mediawiki"
     }
 }
 
@@ -35,7 +36,8 @@ resource "aws_route_table" "mw_rt_public" {
   }
 
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_rt_public"
+      Project = "mediawiki"
   }
 }
 
@@ -43,7 +45,8 @@ resource "aws_route_table" "mw_rt_private" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
 
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_rt_private"
+      Project = "mediawiki"
   }
 }
 
@@ -54,7 +57,8 @@ resource "aws_subnet" "mw_sub_public_a" {
   cidr_block = "192.168.0.0/24"
   
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_sub_public_a"
+      Project = "mediawiki"
   }
 }
 
@@ -64,7 +68,8 @@ resource "aws_subnet" "mw_sub_public_b" {
   cidr_block = "192.168.1.0/24"
   
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_sub_public_b"
+      Project = "mediawiki"
   }
 }
 
@@ -74,7 +79,8 @@ resource "aws_subnet" "mw_sub_private_a" {
   cidr_block = "192.168.2.0/24"
   
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_sub_private_a"
+      Project = "mediawiki"
   }
 }
 
@@ -84,7 +90,8 @@ resource "aws_subnet" "mw_sub_private_b" {
   cidr_block = "192.168.3.0/24"
   
   tags{
-      Name = "mediawiki"
+      Name = "mediawiki_private_b"
+      Project = "mediawiki"
   }
 }
 
@@ -112,9 +119,14 @@ resource "aws_route_table_association" "mw_rta_private_b" {
 #-------------- Security Groups --------------#
 
 resource "aws_security_group" "mw_sg_public" {
-  name = "default_access"
+  name = "web_access"
   description = "default access to instances over 80 and 22"
   vpc_id = "${aws_vpc.mw_vpc.id}"
+
+  tags{
+      Name = "mediawiki_sg_public"
+      Project = "mediawiki"
+  }
 
   #ssh
   ingress{
@@ -141,9 +153,14 @@ resource "aws_security_group" "mw_sg_public" {
 }
 
 resource "aws_security_group" "mw_sg_private" {
-  name = "default_access"
-  description = "default access to instances over 80, 22 and 3306"
+  name = "database_access"
+  description = "default access to instances over 22 and 3306"
   vpc_id = "${aws_vpc.mw_vpc.id}"
+
+  tags{
+      Name = "mediawiki_sg_private"
+      Project = "mediawiki"
+  }
 
   #ssh
   ingress{
