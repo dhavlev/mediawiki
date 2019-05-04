@@ -5,5 +5,12 @@
     name: apache2
     state: restarted
 
-- name: clean up
-  shell: rm -rf /tmp/mediawiki-1.32.1.tar.gz /tmp/sql.sh
+- name: clean-up mediawiki zip
+  file:
+   src: "/tmp/mediawiki-1.32.1.tar.gz"
+   state: absent
+
+- name: clean-up sql.sh
+  file:
+   src: "/tmp/sql.sh"
+   state: absent
