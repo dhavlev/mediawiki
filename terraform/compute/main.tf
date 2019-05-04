@@ -13,6 +13,8 @@ resource "aws_key_pair" "mw_key_pair" {
   public_key = "${file(var.public_key_path)}"
 }
 
+
+#-------------- AWS Instances --------------#
 resource "aws_instance" "mw_instance_web_a" {
   ami = "${var.ami}"
   instance_type = "${var.web_instance_type}"
@@ -52,6 +54,7 @@ resource "aws_instance" "mw_instance_db" {
   }
 }
 
+#-------------- ELB --------------#
 resource "aws_elb" "mw_elb" {
   name = "media_wiki_elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]
@@ -83,8 +86,6 @@ resource "aws_elb" "mw_elb" {
     Project = "mediawiki"
   }
 }
-
-  subnets = ["${aws_subnet.wp_public1_subnet.id}",
     "${aws_subnet.wp_public2_subnet.id}",
   ]
 
