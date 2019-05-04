@@ -86,8 +86,6 @@ resource "aws_elb" "mw_elb" {
     Project = "mediawiki"
   }
 }
-
-_name}-elb"
   }
 }
 
