@@ -77,7 +77,7 @@ EOF
 EOD
   }
   provisioner "local-exec" {
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki && cd .. && ansible-playbook -i naws_hosts master-install-mediawiki.yaml -l dev-mediawiki-web"
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki && cd .. && ansible-playbook -i aws_hosts master-install-mediawiki.yaml -l dev-mediawiki-web"
   }
   name = "media-wiki-elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]
