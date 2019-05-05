@@ -56,8 +56,28 @@ resource "aws_instance" "mw_instance_db" {
 
 #-------------- ELB --------------#
 resource "aws_elb" "mw_elb" {
+
   provisioner "local-exec" {
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki"
+    command = <<EOD
+cat <<EOF > ../aws_hosts 
+
+[dev-mediawiki-web]
+dev-mediawiki-web-1 ansible_host=${aws_instance.mw_instance_web_a.public_ip}
+dev-mediawiki-web-1 ansible_host=${aws_instance.mw_instance_web_b.public_ip}
+
+[dev-mediawiki-sql]
+dev-mediawiki-sql-1 ansible_host=${aws_instance.mw_instance_db.private_ip}
+
+[mysql-servers:children]
+dev-mediawiki-sql
+
+[apache-servers:children]
+dev-mediawiki-web
+EOF
+EOD
+  }
+  provisioner "local-exec" {
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki && cd .. && ansible-playbook -i naws_hosts master-install-mediawiki.yaml -l dev-mediawiki-web"
   }
   name = "media-wiki-elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]

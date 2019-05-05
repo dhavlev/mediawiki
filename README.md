@@ -1,5 +1,14 @@
+# What is thi repository for?
 
-## Installing Ansible
+This repository will help you install Mediawiki[http://mediawiki.com] on AWS fully automated fashion using Terraforma and Ansible.
+
+Terraform is responsible for provisioning infrastructure on AWS while Ansible helps install Mediawiki.
+
+## Diagrams - Infra 
+
+## Diagram - Execution
+
+## Useful links
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-16-04
 
 ## Enabling Keyless Authentication
@@ -13,3 +22,17 @@ ansible-playbook -i non-production master-install-mediawiki.yaml -l dev-mediawik
 
 ## How to Secure Passwords
 https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+
+## Preparing Master Machine
+### Installing Terraform
+
+### Installing Ansible
+
+#### Configuring Ansible Vault
+
+### Installing AWS CLI
+#### Configuring AWS credentials
+
+## Action Begins
+### Execute Terraform
+### Access Mediawiki

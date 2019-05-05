@@ -50,6 +50,7 @@ resource "aws_subnet" "mw_sub_public_a" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
   availability_zone = "${data.aws_availability_zones.data_az.names[0]}"
   cidr_block = "192.168.0.0/24"
+  map_public_ip_on_launch = true
   
   tags{
       Name = "mediawiki_sub_public_a"
@@ -61,6 +62,7 @@ resource "aws_subnet" "mw_sub_public_b" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
   availability_zone = "${data.aws_availability_zones.data_az.names[1]}"
   cidr_block = "192.168.1.0/24"
+  map_public_ip_on_launch = true
   
   tags{
       Name = "mediawiki_sub_public_b"
