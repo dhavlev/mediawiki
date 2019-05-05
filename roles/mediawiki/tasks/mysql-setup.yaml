@@ -13,4 +13,4 @@
   args:
     chdir: /tmp
   notify: 
-    - clean up
+    - clean-up sql.sh
