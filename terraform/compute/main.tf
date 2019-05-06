@@ -69,8 +69,8 @@ dev-mediawiki-web-2 ansible_host=${aws_instance.mw_instance_web_b.public_ip}
 dev-mediawiki-sql-1 ansible_host=${aws_instance.mw_instance_db.private_ip}
 
 [dev-mediawiki-sql:vars]
-web1=${aws_instance.mw_instance_web_a.public_ip}
-web2=${aws_instance.mw_instance_web_b.public_ip}
+web1=${aws_instance.mw_instance_web_a.private_ip}
+web2=${aws_instance.mw_instance_web_b.private_ip}
 
 [mysql-servers:children]
 dev-mediawiki-sql
