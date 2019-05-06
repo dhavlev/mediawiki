@@ -1,0 +1,83 @@
+
+PLAY [all] ********************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************
+ok: [dev-mediawiki-web-1]
+ok: [dev-mediawiki-web-2]
+ok: [dev-mediawiki-sql-1]
+
+TASK [apt-install : apt update and upgrade] ***********************************************************************************************************************************************************
+ [WARNING]: Consider using the apt module rather than running 'apt-get'.  If you need to use command because apt is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+changed: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [apt-install : set mysql root password when server type is database] *****************************************************************************************************************************
+skipping: [dev-mediawiki-web-1]
+skipping: [dev-mediawiki-web-2]
+changed: [dev-mediawiki-sql-1]
+
+TASK [apt-install : install apt packages] *************************************************************************************************************************************************************
+ok: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [mediawiki : download mediawiki] *****************************************************************************************************************************************************************
+skipping: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [mediawiki : unzip mediawiki] ********************************************************************************************************************************************************************
+skipping: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [mediawiki : move mediawiki zip] *****************************************************************************************************************************************************************
+skipping: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-2]
+changed: [dev-mediawiki-web-1]
+
+TASK [mediawiki : Create symbolic link] ***************************************************************************************************************************************************************
+skipping: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [mediawiki : enable php mods] ********************************************************************************************************************************************************************
+skipping: [dev-mediawiki-sql-1]
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+TASK [mediawiki : tranform sql setup template] ********************************************************************************************************************************************************
+skipping: [dev-mediawiki-web-1]
+skipping: [dev-mediawiki-web-2]
+changed: [dev-mediawiki-sql-1]
+
+TASK [mediawiki : execute sql setup] ******************************************************************************************************************************************************************
+skipping: [dev-mediawiki-web-1]
+skipping: [dev-mediawiki-web-2]
+changed: [dev-mediawiki-sql-1]
+
+TASK [mediawiki : modify mysql.conf to allow access to web server] ************************************************************************************************************************************
+skipping: [dev-mediawiki-web-1]
+skipping: [dev-mediawiki-web-2]
+ [WARNING]: Consider using the replace, lineinfile or template module rather than running 'sed'.  If you need to use command because replace, lineinfile or template is insufficient you can add
+'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+changed: [dev-mediawiki-sql-1]
+
+RUNNING HANDLER [mediawiki : restart apache] **********************************************************************************************************************************************************
+changed: [dev-mediawiki-web-2]
+changed: [dev-mediawiki-web-1]
+
+RUNNING HANDLER [mediawiki : clean-up mediawiki zip] **************************************************************************************************************************************************
+changed: [dev-mediawiki-web-1]
+changed: [dev-mediawiki-web-2]
+
+RUNNING HANDLER [mediawiki : clean-up sql.sh] *********************************************************************************************************************************************************
+changed: [dev-mediawiki-sql-1]
+
+PLAY RECAP ********************************************************************************************************************************************************************************************
+dev-mediawiki-sql-1        : ok=8    changed=6    unreachable=0    failed=0   
+dev-mediawiki-web-1        : ok=10   changed=9    unreachable=0    failed=0   
+dev-mediawiki-web-2        : ok=10   changed=9    unreachable=0    failed=0   
+

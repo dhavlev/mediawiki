@@ -1,0 +1,137 @@
+[0m[1mdata.aws_availability_zones.data_az: Refreshing state...[0m
+[0m[1maws_vpc.mw_vpc: Refreshing state... (ID: vpc-0d3daa3a879267132)[0m
+[0m[1maws_key_pair.mw_key_pair: Refreshing state... (ID: media_wiki)[0m
+[0m[1mdata.aws_availability_zones.data_az: Refreshing state...[0m
+[0m[1maws_subnet.mw_sub_public_b: Refreshing state... (ID: subnet-0bc2c769c1cb038e2)[0m
+[0m[1maws_subnet.mw_sub_public_a: Refreshing state... (ID: subnet-0303257b54b315733)[0m
+[0m[1maws_subnet.mw_sub_private_b: Refreshing state... (ID: subnet-0935517f483678497)[0m
+[0m[1maws_subnet.mw_sub_private_a: Refreshing state... (ID: subnet-0d84d52fc72387aa1)[0m
+[0m[1maws_internet_gateway.mw_igw: Refreshing state... (ID: igw-08f051439f8caaece)[0m
+[0m[1maws_route_table.mw_rt_private: Refreshing state... (ID: rtb-0d78e989f7f20aac9)[0m
+[0m[1maws_security_group.mw_sg_private: Refreshing state... (ID: sg-0b2b4b1c2a4a70431)[0m
+[0m[1maws_security_group.mw_sg_public: Refreshing state... (ID: sg-0b22aa4ad9e7beffb)[0m
+[0m[1maws_route_table.mw_rt_public: Refreshing state... (ID: rtb-0eebcf2beba872118)[0m
+[0m[1maws_instance.mw_instance_db: Refreshing state... (ID: i-04667ef459e0227e4)[0m
+[0m[1maws_instance.mw_instance_web_b: Refreshing state... (ID: i-0fa158f595d0c1cb0)[0m
+[0m[1maws_instance.mw_instance_web_a: Refreshing state... (ID: i-0cab41ad8eb038b5e)[0m
+[0m[1maws_route_table_association.mw_rta_private_a: Refreshing state... (ID: rtbassoc-046d9198296c3c880)[0m
+[0m[1maws_route_table_association.mw_rta_private_b: Refreshing state... (ID: rtbassoc-027536e50ff0cbe2b)[0m
+[0m[1maws_route_table_association.mw_rta_public_a: Refreshing state... (ID: rtbassoc-08a7caa5f140d9dd1)[0m
+[0m[1maws_route_table_association.mw_rta_public_b: Refreshing state... (ID: rtbassoc-0803a743ceaf50c11)[0m
+[0m[1maws_elb.mw_elb: Refreshing state... (ID: media-wiki-elb)[0m
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  [31m-[0m destroy
+[0m
+Terraform will perform the following actions:
+
+[31m  [31m-[0m [31mmodule.compute.aws_elb.mw_elb
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.compute.aws_instance.mw_instance_db
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.compute.aws_instance.mw_instance_web_a
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.compute.aws_instance.mw_instance_web_b
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.compute.aws_key_pair.mw_key_pair
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_internet_gateway.mw_igw
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table.mw_rt_private
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table.mw_rt_public
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table_association.mw_rta_private_a
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table_association.mw_rta_private_b
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table_association.mw_rta_public_a
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_route_table_association.mw_rta_public_b
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_security_group.mw_sg_private
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_security_group.mw_sg_public
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_subnet.mw_sub_private_a
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_subnet.mw_sub_private_b
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_subnet.mw_sub_public_a
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_subnet.mw_sub_public_b
+[0m[0m
+[0m[31m  [31m-[0m [31mmodule.network.aws_vpc.mw_vpc
+[0m[0m
+[0m
+[0m[1mPlan:[0m 0 to add, 0 to change, 19 to destroy.[0m
+
+[0m[1mDo you really want to destroy?[0m
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  [1mEnter a value:[0m [0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_public_a: Destroying... (ID: rtbassoc-08a7caa5f140d9dd1)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_public_b: Destroying... (ID: rtbassoc-0803a743ceaf50c11)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_private_b: Destroying... (ID: rtbassoc-027536e50ff0cbe2b)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_private_a: Destroying... (ID: rtbassoc-046d9198296c3c880)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_public_a: Destruction complete after 1s[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_public_b: Destruction complete after 1s[0m[0m
+[0m[1mmodule.network.aws_route_table.mw_rt_public: Destroying... (ID: rtb-0eebcf2beba872118)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_private_a: Destruction complete after 1s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_private_a: Destroying... (ID: subnet-0d84d52fc72387aa1)[0m[0m
+[0m[1mmodule.network.aws_route_table_association.mw_rta_private_b: Destruction complete after 1s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_private_b: Destroying... (ID: subnet-0935517f483678497)[0m[0m
+[0m[1mmodule.network.aws_route_table.mw_rt_private: Destroying... (ID: rtb-0d78e989f7f20aac9)[0m[0m
+[0m[1mmodule.compute.aws_elb.mw_elb: Destroying... (ID: media-wiki-elb)[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_private_a: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_private_b: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_route_table.mw_rt_public: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Destroying... (ID: igw-08f051439f8caaece)[0m[0m
+[0m[1mmodule.network.aws_route_table.mw_rt_private: Destruction complete after 2s[0m[0m
+[0m[1mmodule.compute.aws_elb.mw_elb: Destruction complete after 3s[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_db: Destroying... (ID: i-04667ef459e0227e4)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Destroying... (ID: i-0fa158f595d0c1cb0)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_a: Destroying... (ID: i-0cab41ad8eb038b5e)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 10s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_a: Still destroying... (ID: i-0cab41ad8eb038b5e, 10s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_db: Still destroying... (ID: i-04667ef459e0227e4, 10s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 10s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 20s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 20s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_a: Still destroying... (ID: i-0cab41ad8eb038b5e, 20s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_db: Still destroying... (ID: i-04667ef459e0227e4, 20s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 30s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_db: Still destroying... (ID: i-04667ef459e0227e4, 30s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 30s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_a: Still destroying... (ID: i-0cab41ad8eb038b5e, 30s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_a: Destruction complete after 34s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_public_a: Destroying... (ID: subnet-0303257b54b315733)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_db: Destruction complete after 34s[0m[0m
+[0m[1mmodule.network.aws_security_group.mw_sg_private: Destroying... (ID: sg-0b2b4b1c2a4a70431)[0m[0m
+[0m[1mmodule.network.aws_security_group.mw_sg_private: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 40s elapsed)[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_public_a: Destruction complete after 6s[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 40s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 50s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 50s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 1m0s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 1m0s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 1m10s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 1m10s elapsed)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 1m20s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Still destroying... (ID: i-0fa158f595d0c1cb0, 1m20s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_instance.mw_instance_web_b: Destruction complete after 1m28s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_public_b: Destroying... (ID: subnet-0bc2c769c1cb038e2)[0m[0m
+[0m[1mmodule.network.aws_security_group.mw_sg_public: Destroying... (ID: sg-0b22aa4ad9e7beffb)[0m[0m
+[0m[1mmodule.compute.aws_key_pair.mw_key_pair: Destroying... (ID: media_wiki)[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Still destroying... (ID: igw-08f051439f8caaece, 1m30s elapsed)[0m[0m
+[0m[1mmodule.compute.aws_key_pair.mw_key_pair: Destruction complete after 1s[0m[0m
+[0m[1mmodule.network.aws_security_group.mw_sg_public: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_subnet.mw_sub_public_b: Destruction complete after 2s[0m[0m
+[0m[1mmodule.network.aws_internet_gateway.mw_igw: Destruction complete after 1m33s[0m[0m
+[0m[1mmodule.network.aws_vpc.mw_vpc: Destroying... (ID: vpc-0d3daa3a879267132)[0m[0m
+[0m[1mmodule.network.aws_vpc.mw_vpc: Destruction complete after 1s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 19 destroyed.[0m

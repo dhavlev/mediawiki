@@ -1,0 +1,410 @@
+[0m[1mRefreshing Terraform state in-memory prior to plan...[0m
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+[0m
+[0m[1maws_vpc.mw_vpc: Refreshing state... (ID: vpc-059ff67947feb2dbe)[0m
+[0m[1mdata.aws_availability_zones.data_az: Refreshing state...[0m
+[0m[1maws_subnet.mw_sub_public_b: Refreshing state... (ID: subnet-0a3d4f412b99e343b)[0m
+[0m[1maws_subnet.mw_sub_public_a: Refreshing state... (ID: subnet-097d4544dc2b69726)[0m
+[0m[1maws_security_group.mw_sg_public: Refreshing state... (ID: sg-07255bfd69ab65c30)[0m
+[0m[1maws_internet_gateway.mw_igw: Refreshing state... (ID: igw-04886b1365d14afcc)[0m
+[0m[1mdata.aws_availability_zones.data_az: Refreshing state...[0m
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  [32m+[0m create
+[0m
+Terraform will perform the following actions:
+
+[32m  [32m+[0m [32mmodule.compute.aws_elb.mw_elb
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      availability_zones.#:                        <computed>
+      connection_draining:                         "true"
+      connection_draining_timeout:                 "300"
+      cross_zone_load_balancing:                   "true"
+      dns_name:                                    <computed>
+      health_check.#:                              "1"
+      health_check.0.healthy_threshold:            "2"
+      health_check.0.interval:                     "30"
+      health_check.0.target:                       "TCP:80"
+      health_check.0.timeout:                      "3"
+      health_check.0.unhealthy_threshold:          "3"
+      idle_timeout:                                "300"
+      instances.#:                                 <computed>
+      internal:                                    <computed>
+      listener.#:                                  "1"
+      listener.3057123346.instance_port:           "80"
+      listener.3057123346.instance_protocol:       "http"
+      listener.3057123346.lb_port:                 "80"
+      listener.3057123346.lb_protocol:             "http"
+      listener.3057123346.ssl_certificate_id:      ""
+      name:                                        "media-wiki-elb"
+      security_groups.#:                           <computed>
+      source_security_group:                       <computed>
+      source_security_group_id:                    <computed>
+      subnets.#:                                   <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mw_elb"
+      tags.Project:                                "mediawiki"
+      zone_id:                                     <computed>
+[0m
+[0m[32m  [32m+[0m [32mmodule.compute.aws_instance.mw_instance_db
+[0m      id:                                          <computed>
+      ami:                                         "ami-0cb77736fe18bf6a2"
+      arn:                                         <computed>
+      associate_public_ip_address:                 <computed>
+      availability_zone:                           <computed>
+      cpu_core_count:                              <computed>
+      cpu_threads_per_core:                        <computed>
+      ebs_block_device.#:                          <computed>
+      ephemeral_block_device.#:                    <computed>
+      get_password_data:                           "false"
+      host_id:                                     <computed>
+      instance_state:                              <computed>
+      instance_type:                               "t2.micro"
+      ipv6_address_count:                          <computed>
+      ipv6_addresses.#:                            <computed>
+      key_name:                                    "${aws_key_pair.mw_key_pair.id}"
+      network_interface.#:                         <computed>
+      network_interface_id:                        <computed>
+      password_data:                               <computed>
+      placement_group:                             <computed>
+      primary_network_interface_id:                <computed>
+      private_dns:                                 <computed>
+      private_ip:                                  <computed>
+      public_dns:                                  <computed>
+      public_ip:                                   <computed>
+      root_block_device.#:                         <computed>
+      security_groups.#:                           <computed>
+      source_dest_check:                           "true"
+      subnet_id:                                   "${var.web_subnet_b}"
+      tags.%:                                      "2"
+      tags.Name:                                   "mw_instance_db"
+      tags.Project:                                "mediawiki"
+      tenancy:                                     <computed>
+      volume_tags.%:                               <computed>
+      vpc_security_group_ids.#:                    <computed>
+[0m
+[0m[32m  [32m+[0m [32mmodule.compute.aws_instance.mw_instance_web_a
+[0m      id:                                          <computed>
+      ami:                                         "ami-0cb77736fe18bf6a2"
+      arn:                                         <computed>
+      associate_public_ip_address:                 <computed>
+      availability_zone:                           <computed>
+      cpu_core_count:                              <computed>
+      cpu_threads_per_core:                        <computed>
+      ebs_block_device.#:                          <computed>
+      ephemeral_block_device.#:                    <computed>
+      get_password_data:                           "false"
+      host_id:                                     <computed>
+      instance_state:                              <computed>
+      instance_type:                               "t2.micro"
+      ipv6_address_count:                          <computed>
+      ipv6_addresses.#:                            <computed>
+      key_name:                                    "${aws_key_pair.mw_key_pair.id}"
+      network_interface.#:                         <computed>
+      network_interface_id:                        <computed>
+      password_data:                               <computed>
+      placement_group:                             <computed>
+      primary_network_interface_id:                <computed>
+      private_dns:                                 <computed>
+      private_ip:                                  <computed>
+      public_dns:                                  <computed>
+      public_ip:                                   <computed>
+      root_block_device.#:                         <computed>
+      security_groups.#:                           <computed>
+      source_dest_check:                           "true"
+      subnet_id:                                   "${var.web_subnet_a}"
+      tags.%:                                      "2"
+      tags.Name:                                   "mw_instance_web_a"
+      tags.Project:                                "mediawiki"
+      tenancy:                                     <computed>
+      volume_tags.%:                               <computed>
+      vpc_security_group_ids.#:                    <computed>
+[0m
+[0m[32m  [32m+[0m [32mmodule.compute.aws_instance.mw_instance_web_b
+[0m      id:                                          <computed>
+      ami:                                         "ami-0cb77736fe18bf6a2"
+      arn:                                         <computed>
+      associate_public_ip_address:                 <computed>
+      availability_zone:                           <computed>
+      cpu_core_count:                              <computed>
+      cpu_threads_per_core:                        <computed>
+      ebs_block_device.#:                          <computed>
+      ephemeral_block_device.#:                    <computed>
+      get_password_data:                           "false"
+      host_id:                                     <computed>
+      instance_state:                              <computed>
+      instance_type:                               "t2.micro"
+      ipv6_address_count:                          <computed>
+      ipv6_addresses.#:                            <computed>
+      key_name:                                    "${aws_key_pair.mw_key_pair.id}"
+      network_interface.#:                         <computed>
+      network_interface_id:                        <computed>
+      password_data:                               <computed>
+      placement_group:                             <computed>
+      primary_network_interface_id:                <computed>
+      private_dns:                                 <computed>
+      private_ip:                                  <computed>
+      public_dns:                                  <computed>
+      public_ip:                                   <computed>
+      root_block_device.#:                         <computed>
+      security_groups.#:                           <computed>
+      source_dest_check:                           "true"
+      subnet_id:                                   "${var.web_subnet_b}"
+      tags.%:                                      "2"
+      tags.Name:                                   "mw_instance_web_b"
+      tags.Project:                                "mediawiki"
+      tenancy:                                     <computed>
+      volume_tags.%:                               <computed>
+      vpc_security_group_ids.#:                    <computed>
+[0m
+[0m[32m  [32m+[0m [32mmodule.compute.aws_key_pair.mw_key_pair
+[0m      id:                                          <computed>
+      fingerprint:                                 <computed>
+      key_name:                                    "media_wiki"
+      public_key:                                  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCq1i3wzzs5BxIRphwiwanKdZrXSrWWVZoyggLv4GOkNWnEyOWOtAUXipDIRYRPBeIM/zXkPWg94aYfyTPpIM1666K0BRUwFALDd1DqRx97fMynFbM8kv0Xo/D4PRV3Is6DXkCkm2prae0DhuqdcYlglVQMk7dQmeqXXSbtkQYQplNkbtl8P3B5Rv/B0dpMQNzUaXomRqOGoSH0Okepro392m736z5bvBL8iizaXU6TAJ9G4QWxVctWO31J5Imt4mAxP85aC462Ki0Zm4DgtOJRPVcCZ+fGfeFiFQ1WxQK3O5Ob2ILYCyhgx3R1+7U+UyNI9vJR52tje4BcBKPqZDor cloud_user@dhavlev3c.mylabserver.com"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_internet_gateway.mw_igw
+[0m      id:                                          <computed>
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      " ${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table.mw_rt_private
+[0m      id:                                          <computed>
+      owner_id:                                    <computed>
+      propagating_vgws.#:                          <computed>
+      route.#:                                     <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_rt_private"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table.mw_rt_public
+[0m      id:                                          <computed>
+      owner_id:                                    <computed>
+      propagating_vgws.#:                          <computed>
+      route.#:                                     "1"
+      route.~2046344431.cidr_block:                "0.0.0.0/0"
+      route.~2046344431.egress_only_gateway_id:    ""
+      route.~2046344431.gateway_id:                "${aws_internet_gateway.mw_igw.id}"
+      route.~2046344431.instance_id:               ""
+      route.~2046344431.ipv6_cidr_block:           ""
+      route.~2046344431.nat_gateway_id:            ""
+      route.~2046344431.network_interface_id:      ""
+      route.~2046344431.transit_gateway_id:        ""
+      route.~2046344431.vpc_peering_connection_id: ""
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_rt_public"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table_association.mw_rta_private_a
+[0m      id:                                          <computed>
+      route_table_id:                              "${aws_route_table.mw_rt_private.id}"
+      subnet_id:                                   "${aws_subnet.mw_sub_private_a.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table_association.mw_rta_private_b
+[0m      id:                                          <computed>
+      route_table_id:                              "${aws_route_table.mw_rt_private.id}"
+      subnet_id:                                   "${aws_subnet.mw_sub_private_b.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table_association.mw_rta_public_a
+[0m      id:                                          <computed>
+      route_table_id:                              "${aws_route_table.mw_rt_public.id}"
+      subnet_id:                                   "${aws_subnet.mw_sub_public_a.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_route_table_association.mw_rta_public_b
+[0m      id:                                          <computed>
+      route_table_id:                              "${aws_route_table.mw_rt_public.id}"
+      subnet_id:                                   "${aws_subnet.mw_sub_public_b.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_security_group.mw_sg_private
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      description:                                 "default access to instances over 22 and 3306"
+      egress.#:                                    "1"
+      egress.482069346.cidr_blocks.#:              "1"
+      egress.482069346.cidr_blocks.0:              "0.0.0.0/0"
+      egress.482069346.description:                ""
+      egress.482069346.from_port:                  "0"
+      egress.482069346.ipv6_cidr_blocks.#:         "0"
+      egress.482069346.prefix_list_ids.#:          "0"
+      egress.482069346.protocol:                   "-1"
+      egress.482069346.security_groups.#:          "0"
+      egress.482069346.self:                       "false"
+      egress.482069346.to_port:                    "0"
+      ingress.#:                                   "2"
+      ingress.1163740523.cidr_blocks.#:            "1"
+      ingress.1163740523.cidr_blocks.0:            "0.0.0.0/0"
+      ingress.1163740523.description:              ""
+      ingress.1163740523.from_port:                "3306"
+      ingress.1163740523.ipv6_cidr_blocks.#:       "0"
+      ingress.1163740523.prefix_list_ids.#:        "0"
+      ingress.1163740523.protocol:                 "tcp"
+      ingress.1163740523.security_groups.#:        "0"
+      ingress.1163740523.self:                     "false"
+      ingress.1163740523.to_port:                  "3306"
+      ingress.2541437006.cidr_blocks.#:            "1"
+      ingress.2541437006.cidr_blocks.0:            "0.0.0.0/0"
+      ingress.2541437006.description:              ""
+      ingress.2541437006.from_port:                "22"
+      ingress.2541437006.ipv6_cidr_blocks.#:       "0"
+      ingress.2541437006.prefix_list_ids.#:        "0"
+      ingress.2541437006.protocol:                 "tcp"
+      ingress.2541437006.security_groups.#:        "0"
+      ingress.2541437006.self:                     "false"
+      ingress.2541437006.to_port:                  "22"
+      name:                                        "database_access"
+      owner_id:                                    <computed>
+      revoke_rules_on_delete:                      "false"
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_sg_private"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_security_group.mw_sg_public
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      description:                                 "default access to instances over 80 and 22"
+      egress.#:                                    "1"
+      egress.482069346.cidr_blocks.#:              "1"
+      egress.482069346.cidr_blocks.0:              "0.0.0.0/0"
+      egress.482069346.description:                ""
+      egress.482069346.from_port:                  "0"
+      egress.482069346.ipv6_cidr_blocks.#:         "0"
+      egress.482069346.prefix_list_ids.#:          "0"
+      egress.482069346.protocol:                   "-1"
+      egress.482069346.security_groups.#:          "0"
+      egress.482069346.self:                       "false"
+      egress.482069346.to_port:                    "0"
+      ingress.#:                                   "2"
+      ingress.2214680975.cidr_blocks.#:            "1"
+      ingress.2214680975.cidr_blocks.0:            "0.0.0.0/0"
+      ingress.2214680975.description:              ""
+      ingress.2214680975.from_port:                "80"
+      ingress.2214680975.ipv6_cidr_blocks.#:       "0"
+      ingress.2214680975.prefix_list_ids.#:        "0"
+      ingress.2214680975.protocol:                 "tcp"
+      ingress.2214680975.security_groups.#:        "0"
+      ingress.2214680975.self:                     "false"
+      ingress.2214680975.to_port:                  "80"
+      ingress.2541437006.cidr_blocks.#:            "1"
+      ingress.2541437006.cidr_blocks.0:            "0.0.0.0/0"
+      ingress.2541437006.description:              ""
+      ingress.2541437006.from_port:                "22"
+      ingress.2541437006.ipv6_cidr_blocks.#:       "0"
+      ingress.2541437006.prefix_list_ids.#:        "0"
+      ingress.2541437006.protocol:                 "tcp"
+      ingress.2541437006.security_groups.#:        "0"
+      ingress.2541437006.self:                     "false"
+      ingress.2541437006.to_port:                  "22"
+      name:                                        "web_access"
+      owner_id:                                    <computed>
+      revoke_rules_on_delete:                      "false"
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_sg_public"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_subnet.mw_sub_private_a
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      assign_ipv6_address_on_creation:             "false"
+      availability_zone:                           "us-east-1a"
+      availability_zone_id:                        <computed>
+      cidr_block:                                  "192.168.2.0/24"
+      ipv6_cidr_block:                             <computed>
+      ipv6_cidr_block_association_id:              <computed>
+      map_public_ip_on_launch:                     "false"
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_sub_private_a"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_subnet.mw_sub_private_b
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      assign_ipv6_address_on_creation:             "false"
+      availability_zone:                           "us-east-1b"
+      availability_zone_id:                        <computed>
+      cidr_block:                                  "192.168.3.0/24"
+      ipv6_cidr_block:                             <computed>
+      ipv6_cidr_block_association_id:              <computed>
+      map_public_ip_on_launch:                     "false"
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_private_b"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_subnet.mw_sub_public_a
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      assign_ipv6_address_on_creation:             "false"
+      availability_zone:                           "us-east-1a"
+      availability_zone_id:                        <computed>
+      cidr_block:                                  "192.168.0.0/24"
+      ipv6_cidr_block:                             <computed>
+      ipv6_cidr_block_association_id:              <computed>
+      map_public_ip_on_launch:                     "true"
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_sub_public_a"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_subnet.mw_sub_public_b
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      assign_ipv6_address_on_creation:             "false"
+      availability_zone:                           "us-east-1b"
+      availability_zone_id:                        <computed>
+      cidr_block:                                  "192.168.1.0/24"
+      ipv6_cidr_block:                             <computed>
+      ipv6_cidr_block_association_id:              <computed>
+      map_public_ip_on_launch:                     "true"
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki_sub_public_b"
+      tags.Project:                                "mediawiki"
+      vpc_id:                                      "${aws_vpc.mw_vpc.id}"
+[0m
+[0m[32m  [32m+[0m [32mmodule.network.aws_vpc.mw_vpc
+[0m      id:                                          <computed>
+      arn:                                         <computed>
+      assign_generated_ipv6_cidr_block:            "false"
+      cidr_block:                                  "192.168.0.0/16"
+      default_network_acl_id:                      <computed>
+      default_route_table_id:                      <computed>
+      default_security_group_id:                   <computed>
+      dhcp_options_id:                             <computed>
+      enable_classiclink:                          <computed>
+      enable_classiclink_dns_support:              <computed>
+      enable_dns_hostnames:                        <computed>
+      enable_dns_support:                          "true"
+      instance_tenancy:                            "default"
+      ipv6_association_id:                         <computed>
+      ipv6_cidr_block:                             <computed>
+      main_route_table_id:                         <computed>
+      owner_id:                                    <computed>
+      tags.%:                                      "2"
+      tags.Name:                                   "mediawiki"
+      tags.Project:                                "mediawiki"
+[0m
+[0m
+[0m[1mPlan:[0m 19 to add, 0 to change, 0 to destroy.[0m
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
+

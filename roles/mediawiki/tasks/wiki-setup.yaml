@@ -21,6 +21,11 @@
    state: link
    force: yes
 
+#- name: transform localsettings.php template
+#  template:
+#    dest: /var/lib/mediawiki/LocalSettings.php
+#    src: LocalSettings.php.j2
+
 - name: enable php mods
   shell: phpenmod mbstring && sudo phpenmod xml
   notify:

@@ -65,6 +65,10 @@ cat <<EOF > ../aws_hosts
 dev-mediawiki-web-1 ansible_host=${aws_instance.mw_instance_web_a.public_ip}
 dev-mediawiki-web-2 ansible_host=${aws_instance.mw_instance_web_b.public_ip}
 
+[dev-mediawiki-web:vars]
+lb_url=${aws_elb.mw_elb.dns_name}
+database_ip=${aws_instance.mw_instance_db.private_ip}
+
 [dev-mediawiki-sql]
 dev-mediawiki-sql-1 ansible_host=${aws_instance.mw_instance_db.private_ip}
 
@@ -112,4 +116,11 @@ EOD
     Name = "mw_elb"
     Project = "mediawiki"
   }
+}
+
+resource "aws_lb_cookie_stickiness_policy" "mw_lb_policy" {
+  name                     = "mw_lb_policy"
+  load_balancer            = "${aws_elb.mw_elb.id}"
+  lb_port                  = 80
+  cookie_expiration_period = 600
 }
