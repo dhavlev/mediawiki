@@ -63,7 +63,11 @@ cat <<EOF > ../aws_hosts
 
 [dev-mediawiki-web]
 dev-mediawiki-web-1 ansible_host=${aws_instance.mw_instance_web_a.public_ip}
-dev-mediawiki-web-1 ansible_host=${aws_instance.mw_instance_web_b.public_ip}
+dev-mediawiki-web-2 ansible_host=${aws_instance.mw_instance_web_b.public_ip}
+
+[dev-mediawiki-web:vars]
+web1=${aws_instance.mw_instance_web_a.public_ip}
+web2=${aws_instance.mw_instance_web_b.public_ip}
 
 [dev-mediawiki-sql]
 dev-mediawiki-sql-1 ansible_host=${aws_instance.mw_instance_db.private_ip}

@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: apt-install, when: server_type == "web" }
+  - { role: apt-install }

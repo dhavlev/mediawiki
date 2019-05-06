@@ -9,8 +9,8 @@
 
 
 - name: execute sql setup
-  shell: sql.sh
-  args:
-    chdir: /tmp
+  shell: /tmp/sql.sh
   notify: 
     - clean-up sql.sh
+
+- name: modify mysql.conf to allow access to web server
