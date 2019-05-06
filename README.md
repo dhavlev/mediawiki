@@ -19,7 +19,7 @@ Terraform is responsible for provisioning infrastructure on AWS while Ansible he
 ## How to Execute Terrform Scripts
 
 ## Preparing Master Machine
-Please refer to file - master-setup-script.sh
+Please refer to file - [master-setup-script.sh](master-setup-script.sh)
 ```
 chmod 700 master-setup-script.sh
 ./master-setup-script.sh
