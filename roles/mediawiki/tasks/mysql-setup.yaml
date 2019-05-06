@@ -6,11 +6,10 @@
     src: sql.sh.j2
     mode: 0555
 
-
-
 - name: execute sql setup
   shell: /tmp/sql.sh
   notify: 
     - clean-up sql.sh
 
 - name: modify mysql.conf to allow access to web server
+  shell: sed -i 's/bind-address/#bind-address/g' /etc/mysql/mysql.conf.d/mysqld.cnf
