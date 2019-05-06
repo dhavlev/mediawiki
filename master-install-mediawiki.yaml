@@ -1,5 +1,4 @@
-- hosts: all
-  serial: 1
+- hosts: all  
   become: yes
   roles:
     - { role: mediawiki, tags: "mediawiki" }
