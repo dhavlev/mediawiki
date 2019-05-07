@@ -46,7 +46,7 @@ resource "aws_instance" "mw_instance_db" {
   instance_type = "${var.web_instance_type}"
   key_name = "${aws_key_pair.mw_key_pair.id}"
   vpc_security_group_ids = ["${var.db_security_group}"]
-  subnet_id = "${var.web_subnet_b}"
+  subnet_id = "${var.db_subnet}"
 
   tags{
     Name = "mw_instance_db"
