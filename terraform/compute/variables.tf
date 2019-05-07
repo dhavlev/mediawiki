@@ -8,3 +8,4 @@ variable "db_security_group" {}
 variable "web_subnet_a" {}
 variable "web_subnet_b" {}
 variable "db_subnet" {}
+variable "aws_profile" {}

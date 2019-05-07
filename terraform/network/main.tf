@@ -14,7 +14,7 @@ resource "aws_vpc" "mw_vpc" {
 
 #-------------- Internet Gateway --------------#
 resource "aws_internet_gateway" "mw_igw" {
-  vpc_id =" ${aws_vpc.mw_vpc.id}"
+  vpc_id ="${aws_vpc.mw_vpc.id}"
   
   tags{
       Name = "mediawiki"

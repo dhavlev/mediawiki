@@ -1,0 +1,6 @@
+ami                 = "ami-003b05d07ee3186bd"
+key_name            = "media_wiki"
+public_key_path     = "/home/cloud_user/.ssh/media_wiki.pub"
+web_instance_type   = "t2.micro"
+db_instance_type    = "t2.micro"
+aws_profile         = "mediawiki"

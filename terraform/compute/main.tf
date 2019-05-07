@@ -85,7 +85,7 @@ EOF
 EOD
   }
   provisioner "local-exec" {
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki && cd .. && ansible-playbook -i aws_hosts master-install-mediawiki.yaml"
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile ${var.aws_profile} && cd .. && ansible-playbook -i aws_hosts master-install-mediawiki.yaml"
   }
   name = "media-wiki-elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]
@@ -119,7 +119,7 @@ EOD
 }
 
 resource "aws_lb_cookie_stickiness_policy" "mw_lb_policy" {
-  name                     = "mw_lb_policy"
+  name                     = "mw-lb-policy"
   load_balancer            = "${aws_elb.mw_elb.id}"
   lb_port                  = 80
   cookie_expiration_period = 600
