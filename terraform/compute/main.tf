@@ -120,7 +120,7 @@ EOD
 
 resource "aws_lb_cookie_stickiness_policy" "mw_lb_policy" {
   name                     = "mw_lb_policy"
-  load_balancer            = "${aws_elb.mw_elb.id}"
+  load_balancer            = "${aws_elb.mw_elb.name}"
   lb_port                  = 80
   cookie_expiration_period = 600
 }

@@ -12,7 +12,7 @@ module "compute" {
   ami = "${var.ami}"
   key_name = "${var.key_name}"
   public_key_path = "${var.public_key_path}"
-  aws_profile = ${var.aws_profile}
+  aws_profile = "${var.aws_profile}"
 
   web_instance_type = "${var.web_instance_type}"
   web_security_group = "${module.network.web_security_group}"
