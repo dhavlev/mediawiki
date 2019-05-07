@@ -46,7 +46,7 @@ resource "aws_instance" "mw_instance_db" {
   instance_type = "${var.web_instance_type}"
   key_name = "${aws_key_pair.mw_key_pair.id}"
   vpc_security_group_ids = ["${var.db_security_group}"]
-  subnet_id = "${var.db_subnet}"
+  subnet_id = "${var.web_subnet_b}"
 
   tags{
     Name = "mw_instance_db"
@@ -84,9 +84,9 @@ dev-mediawiki-web
 EOF
 EOD
   }
-  provisioner "local-exec" {
-    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile mediawiki && cd .. && ansible-playbook -i aws_hosts master-install-mediawiki.yaml"
-  }
+  #provisioner "local-exec" {
+  #  command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.mw_instance_web_a.id} ${aws_instance.mw_instance_web_b.id} ${aws_instance.mw_instance_db.id} --profile ${var.aws_profile} && cd .. && ansible-playbook -i aws_hosts master-install-mediawiki.yaml"
+  #}
   name = "media-wiki-elb"
   subnets = ["${var.web_subnet_a}", "${var.web_subnet_b}"]
   instances = ["${aws_instance.mw_instance_web_a.id}", "${aws_instance.mw_instance_web_b.id}"]
