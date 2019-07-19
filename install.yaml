@@ -1,0 +1,4 @@
+- hosts: all  
+  become: yes
+  roles:
+    - { role: apt-install, tags: "apt-install" }

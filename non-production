@@ -1,6 +1,6 @@
 [dev-mediawiki-web]
-dev-mediawiki-web-1 ansible_host=x.x.x.x
-dev-mediawiki-web-2 ansible_host=y.y.y.y
+dev-mediawiki-web-1 ansible_host=127.0.0.1
+
 
 [dev-mediawiki-sql]
 dev-mediawiki-sql-1 ansible_host=z.z.z.z
