@@ -1,4 +1,5 @@
 - hosts: all  
   become: yes
+  connection: local
   roles:
     - { role: apt-install, tags: "apt-install" }
